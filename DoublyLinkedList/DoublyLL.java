@@ -2,11 +2,12 @@ package DoublyLinkedList;
 
 public class DoublyLL {
     private Node head;
+    int size = 0;
     private class Node{
         int data;
         Node next;
         Node prev;
-
+        
         public Node(int data){
             this.data = data;
         }
@@ -14,6 +15,7 @@ public class DoublyLL {
             this.data = data;
             this.next = next;
             this.prev = prev;
+            
         }
     }
 
@@ -27,6 +29,28 @@ public class DoublyLL {
             head.prev = node;
         }
         head = node;
+        size++;
+    }
+    // InsertLast
+
+    public void insertLast(int data){
+        Node node = new Node(data);
+        Node last = head;
+        node.next = null;
+
+        if(head == null){
+            node.prev = null;
+            head = node;
+            return;
+        }
+        while(last.next != null){
+            last = last.next;
+        }
+        last.next = node;
+        node.prev = last;
+
+        size++;
+
     }
     // Display The data
 
@@ -45,6 +69,7 @@ public class DoublyLL {
             last = last.prev;
         }
         System.out.println("END");
+        System.out.println(size);
     }
     
 }
