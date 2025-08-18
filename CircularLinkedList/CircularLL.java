@@ -1,5 +1,63 @@
 package CircularLinkedList;
 
 public class CircularLL {
+    private Node head;
+    private Node tail;
+    private class Node {
+        int data;
+        Node next;
+        public Node(int data){
+            this.data = data;
+        }
+    }
+
+    // Insert in CLL
+
+    public void insertData(int data){
+        Node node = new Node(data);
+        if(head == null){
+            head = node;
+            tail = node;
+            return;
+        }
+        tail.next = node;
+        node.next = head;
+        tail = node;
+
+    }
+    // Delete element from CLL
+    public void delete(int value){
+        
+        Node node = head;
+        if(node == null){
+            return;
+        }
+        if(node.data == value){
+            head = head.next;
+            tail.next = head;
+            return;
+        }
+        do{
+            Node n = node.next;
+            if(n.data == value){
+                node.next = n.next;
+                break;
+            }
+            node = node.next;
+        }while(node != head);
+        
+    }
+    public void display(){
+        Node node = head;
+        if(head != null){
+            do{
+                System.out.print(node.data + "->");
+                node = node.next;
+            }while(node != head);
+
+        }
+        System.out.println("HEAD");
+        
+    }
     
 }
