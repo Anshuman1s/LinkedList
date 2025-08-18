@@ -24,7 +24,7 @@ public class DoublyLL {
         node.next = head;
         node.prev = null;
         if(head != null){
-            head.prev = null;
+            head.prev = node;
         }
         head = node;
     }
@@ -32,11 +32,19 @@ public class DoublyLL {
 
     public void Display(){
         Node temp = head;
+        Node last = null;
         while(temp != null){
-            System.out.print(temp.data + "=>");
+            System.out.print(temp.data + "->");
+            last = temp;
             temp = temp.next;
         }
         System.out.println("End");
+
+        while(last != null){
+            System.out.print(last.data +"->");
+            last = last.prev;
+        }
+        System.out.println("END");
     }
     
 }
