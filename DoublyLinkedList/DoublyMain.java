@@ -8,6 +8,7 @@ public class DoublyMain {
         ll.insertFirst(12);
         ll.insertFirst(15);
         ll.insertLast(21);
+        ll.insert(12, 11);
         ll.Display();
         
     }
