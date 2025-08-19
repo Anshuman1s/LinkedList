@@ -61,6 +61,19 @@ public class SinglyLL {
 
         
     }
+    // Insertion Using Recursion 
+    public void insertRec(int data,int index){
+        head = insertRec(data, index,head);
+    }
+    private Node insertRec(int data,int index,Node node){
+        if(index == 0){
+            Node temp = new Node(data,node);
+            size++;
+            return temp;
+        }
+        node.next = insertRec(data, index-1, node.next);
+        return node;
+    }
     public void display(){
         Node temp = head;
         while(temp != null){

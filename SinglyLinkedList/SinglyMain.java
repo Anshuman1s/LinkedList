@@ -9,6 +9,7 @@ public class SinglyMain {
         ll.insertFirst(48);
         ll.insertLast(51);
         ll.insertWithIndex(101, 3);
+        ll.insertRec(0, 4);
         ll.display();
     }
 }
