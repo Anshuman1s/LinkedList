@@ -74,6 +74,16 @@ public class SinglyLL {
         node.next = insertRec(data, index-1, node.next);
         return node;
     }
+    //Delete First
+    public int deleteFirst() {
+        int val = head.data;
+        head = head.next;
+        if (head == null) {
+            tail = null;
+        }
+        size--;
+        return val;
+    }
     public void display(){
         Node temp = head;
         while(temp != null){
