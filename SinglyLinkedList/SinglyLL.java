@@ -91,12 +91,46 @@ public class SinglyLL {
         }
 
         Node secondLast = get(size - 2);
-        int val = tail.value;
+        int val = tail.data;
         tail = secondLast;
         tail.next = null;
         size--;
         return val;
     }
+     public Node get(int index) {
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+    // Delete Index
+    public int delete(int index) {
+        if (index == 0) {
+            return deleteFirst();
+        }
+        if (index == size - 1) {
+            return deleteLast();
+        }
+
+        Node prev = get(index - 1);
+        int val = prev.next.data;
+
+        prev.next = prev.next.next;
+        size--;
+        return val;
+    }
+    public Node find(int value) {
+        Node node = head;
+        while (node != null) {
+            if (node.data == value) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
+
     public void display(){
         Node temp = head;
         while(temp != null){
