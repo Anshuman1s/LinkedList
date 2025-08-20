@@ -84,6 +84,19 @@ public class SinglyLL {
         size--;
         return val;
     }
+    // Delete Last
+    public int deleteLast() {
+        if (size <= 1) {
+            return deleteFirst();
+        }
+
+        Node secondLast = get(size - 2);
+        int val = tail.value;
+        tail = secondLast;
+        tail.next = null;
+        size--;
+        return val;
+    }
     public void display(){
         Node temp = head;
         while(temp != null){
